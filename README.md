@@ -1,3 +1,5 @@
+# Code for research - NOT for production!
+
 # Muckle
 
 Muckle derives from the traditional English phrase "Many a mickle makes a muckle": many small things can add up to make a big thing.
