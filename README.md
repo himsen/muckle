@@ -78,4 +78,4 @@ More consecutative initiator runs can be added manually be modifying the functio
 ## Contributors
 
 * Torben Hansen (Royal Holloway, University of London)
-* Benjamin Dowling (Royal Holloway, University of London)
+* Benjamin Dowling (ETH Zurich)
