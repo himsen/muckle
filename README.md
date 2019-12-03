@@ -1,6 +1,6 @@
 # Muckle - the One True Key Exchange
 
-## *Currently on `master` branch*
+## *Currently on `profiling` branch*
 
 ## Supported platforms
 
@@ -63,17 +63,15 @@ Start responder
 
 1. On responder machine: `$./muckle_responder`.
 
-To run initiator (default: 2 client runs):
+Start initiator, which will conduct the profiling automatically.
 
 1. On initiator machine: `$./muckle_initiator`
 
-More consecutative initiator runs can be added manually be modifying the function `main_muckle_reference()` in source file `muckle_initiator.c`. Build as above before running again.
+## Profiling
 
-## Other branches
+The profiling is done using [minitrace](https://github.com/hrydgard/minitrace). To view the results go to chrome's build-in trace viewer: chrome://tracing. The output file containing the trace is named `trace.log`.
 
-* `master` branch (current)
-* `performance` branch: benchmark measuring wall-time
-* `profiling` branch: profiles the wall-time of each high-level functions used by initiator and responder.
+Note that there is no profiling on the responder side. This is because the initiator and responder shares the same functions.
 
 ## Contributors
 

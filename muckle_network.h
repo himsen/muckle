@@ -34,7 +34,7 @@ typedef struct muckle_network_ctx {
 /*
  * Document
  */
-int muckle_network_initiator_init(MUCKLE_NETWORK_CTX *network_ctx,
+int muckle_network_initiator_init(MUCKLE_NETWORK_CTX *network_ctx, 
 	char *serverIpAddr, int serverPort);
 
 /*

@@ -120,9 +120,6 @@ static int muckle_mac_compute(MUCKLE_MSG *msg,
 	memcpy(buf + index, &msg->version, sizeof(u_int8_t));
 	index = index + sizeof(u_int8_t);
 
-	memcpy(buf + index, msg->id, MUCKLE_ID_LEN);
-	index = index + MUCKLE_ID_LEN;
-
 	memcpy(buf + index, msg->classEcdhPub, MUCKLE_KEY_LEN_ECDH);
 	index = index + MUCKLE_KEY_LEN_ECDH;
 
@@ -297,7 +294,7 @@ int muckle_state_init(MUCKLE_STATE *state, MUCKLE_MODE mode,
 	mbedtls_ctr_drbg_init(&state->rng_ctx);
 
 	/* When should this be re-seeded? */
-	res = mbedtls_ctr_drbg_seed(&state->rng_ctx, mbedtls_entropy_func,
+	res = mbedtls_ctr_drbg_seed(&state->rng_ctx, mbedtls_entropy_func, 
 		&state->entropy_ctx, (const unsigned char *) MUCKLE_LABEL_PRNG,
 		sizeof(MUCKLE_LABEL_PRNG));
 	if (res < 0) {
@@ -358,7 +355,7 @@ void muckle_protocol_cleanup(MUCKLE_PROTOCOL *protocol) {
 	if (protocol->ecdhCtx != NULL) {
 		mbedtls_ecdh_free(protocol->ecdhCtx);
 		free(protocol->ecdhCtx);
-		protocol->ecdhCtx = NULL;
+		protocol->ecdhCtx = NULL;	
 	}
 }
 
@@ -402,7 +399,7 @@ int muckle_ecdh_compute(MUCKLE_STATE *state, MUCKLE_PROTOCOL *protocol,
 		return MUCKLE_ERR;
 	}
 
-	if ((mbedtls_mpi_read_binary(&protocol->ecdhCtx->Qp.X, msg->classEcdhPub,
+	if ((mbedtls_mpi_read_binary(&protocol->ecdhCtx->Qp.X, msg->classEcdhPub, 
 			MUCKLE_KEY_LEN_ECDH_PUB) < 0) ||
 		(mbedtls_mpi_lset(&protocol->ecdhCtx->Qp.Z, 1) < 0) ||
 		(mbedtls_ecdh_calc_secret(protocol->ecdhCtx, &outLen,
@@ -468,7 +465,7 @@ int muckle_sidh_compute(MUCKLE_STATE *state, MUCKLE_PROTOCOL *protocol,
 	}
 	else if(MUCKLE_MODE_RESPONDER == state->mode) {
 		res = EphemeralSecretAgreement_B_SIDHp503(protocol->qraPrivate,
-			msg->qraSidhPub, qraComputedSecret);
+			msg->qraSidhPub, qraComputedSecret);			
 	}
 	else {
 		return MUCKLE_ERR;
