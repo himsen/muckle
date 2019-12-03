@@ -55,14 +55,10 @@ typedef enum muckle_mode {
 
 #define MUCKLE_TAG_LEN 32 /* Counted in bytes */
 
-#define MUCKLE_ID_LEN 32 /* Counted in bytes */
-
 /* Muckle message */
 #define MUCKLE_MSG_VERSION 0
 #define MUCKLE_MSG_ONE_TYPE 0
 #define MUCKLE_MSG_TWO_TYPE 1
-#define MUCKLE_MSG_LEN (2 * sizeof(u_int8_t) + MUCKLE_ID_LEN + MUCKLE_KEY_LEN_ECDH_PUB +  MUCKLE_KEY_LEN_SIDH_PUB + MUCKLE_TAG_LEN) /* Counted in bytes */
-
-/* Length of a Muckle message is 476 bytes */
+#define MUCKLE_MSG_LEN 444 /* Counted in bytes */
 
 #endif /* MUCKLE_H */
