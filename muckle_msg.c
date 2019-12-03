@@ -16,12 +16,10 @@
  * Public Muckle message function definitions
  */
 
-void muckle_msg_init(MUCKLE_MSG *msg, u_int8_t msgType, u_int8_t msgVersion,
-	const unsigned char *id) {
+void muckle_msg_init(MUCKLE_MSG *msg, u_int8_t msgType, u_int8_t msgVersion) {
 
 	msg->type = msgType;
 	msg->version = msgVersion;
-	memcpy(msg->id, id, MUCKLE_ID_LEN);
 }
 
 void muckle_msg_serialise(MUCKLE_MSG *msg, unsigned char *msgSerialised) {
@@ -33,9 +31,6 @@ void muckle_msg_serialise(MUCKLE_MSG *msg, unsigned char *msgSerialised) {
 
 	memcpy(msgSerialised + index, &msg->version, sizeof(u_int8_t));
 	index = index + sizeof(u_int8_t);
-
-	memcpy(msgSerialised + index, msg->id, MUCKLE_ID_LEN);
-	index = index + MUCKLE_ID_LEN;
 
 	memcpy(msgSerialised + index, msg->classEcdhPub, MUCKLE_KEY_LEN_ECDH_PUB);
 	index = index + MUCKLE_KEY_LEN_ECDH_PUB;
@@ -56,9 +51,6 @@ void muckle_msg_deserialise(MUCKLE_MSG *msg, unsigned char *msgSerialised) {
 
 	memcpy(&msg->version, msgSerialised + index, sizeof(u_int8_t));
 	index = index + sizeof(u_int8_t);
-
-	memcpy(msg->id, msgSerialised + index, MUCKLE_ID_LEN);
-	index = index + MUCKLE_ID_LEN;
 
 	memcpy(msg->classEcdhPub, msgSerialised + index, MUCKLE_KEY_LEN_ECDH_PUB);
 	index = index + MUCKLE_KEY_LEN_ECDH_PUB;

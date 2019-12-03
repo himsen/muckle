@@ -1,6 +1,6 @@
 # Muckle - the One True Key Exchange
 
-## *Currently on `master` branch*
+## *Currently on `performance` branch*
 
 ## Supported platforms
 
@@ -63,17 +63,17 @@ Start responder
 
 1. On responder machine: `$./muckle_responder`.
 
-To run initiator (default: 2 client runs):
+Start initiator, which will conduct the benchmark automatically.
 
 1. On initiator machine: `$./muckle_initiator`
 
-More consecutative initiator runs can be added manually be modifying the function `main_muckle_reference()` in source file `muckle_initiator.c`. Build as above before running again.
+## Benchmark
 
-## Other branches
+The benchmark measures the wall-time of the initiator and responder. The time where the responder is waiting to receive a message from the initiator is subtracted from the wall-time.
 
-* `master` branch (current)
-* `performance` branch: benchmark measuring wall-time
-* `profiling` branch: profiles the wall-time of each high-level functions used by initiator and responder.
+The number of samples collected is determined by the constant `NUMBER_OF_SAMPLES`. This constant must be modified in both `muckle_initiator.c` and `muckle_responder.c`.
+
+The result will appear in two log files `muckle_performance_initiator.log` and `muckle_performance.responder.log` for the initiator, respectively, the responder.-
 
 ## Contributors
 

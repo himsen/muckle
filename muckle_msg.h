@@ -17,7 +17,6 @@ typedef struct muckle_msg {
 
 	u_int8_t type;
 	u_int8_t version;
-	unsigned char id[MUCKLE_ID_LEN];
 	unsigned char classEcdhPub[MUCKLE_KEY_LEN_ECDH_PUB];
 	unsigned char qraSidhPub[MUCKLE_KEY_LEN_SIDH_PUB];
 	unsigned char tag[MUCKLE_TAG_LEN];
@@ -31,8 +30,7 @@ typedef struct muckle_msg {
 /*
  * Document
  */
-void muckle_msg_init(MUCKLE_MSG *msg, u_int8_t msgType, u_int8_t msgVersion,
-	const unsigned char *id);
+void muckle_msg_init(MUCKLE_MSG *msg, u_int8_t msgType, u_int8_t msgVersion);
 
 /*
  * Document
