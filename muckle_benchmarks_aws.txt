@@ -1,0 +1,28 @@
+SETUP
+
+sudo yum groupinstall "Development Tools"
+
+git clone 
+
+make
+
+make ARCH=x64 CC=gcc OPT_LEVEL=FAST
+
+make
+
+change IP on initiator 
+
+change number of samples
+
+RUN SCRIPTS FOR
+
+taskset 0x01 binary
+
+(cycles branch) muckle cycles
+
+(cycles branch) core crypto function cycles
+
+(performance branch) Muckle wall time
+
+AWS NETWORK PERFORMANCE
+https://cloudonaut.io/ec2-network-performance-demystified-m3-m4/
