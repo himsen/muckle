@@ -1,4 +1,6 @@
-# Muckle - the One True Key Exchange
+# Muckle
+
+Muckle derives from the traditional English phrase "Many a mickle makes a muckle": many small things can add up to make a big thing.
 
 ## *Currently on `master` branch*
 
