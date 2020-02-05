@@ -1,4 +1,4 @@
-Copyright (c) <2018> <Benjamin Dowling benjamin.dowling@rhul.ac.uk>
+Copyright (c) <2020> <Torben Hansen torben.hansen.2015@rhul.ac.uk> <Benjamin Dowling benjamin.dowling@inf.ethz.ch> 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -18,7 +18,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-All files in the "crypto" folder are subject to the Apache 2.0 License agreement,
+All files in the "mbedtls-2.13.0" folder are subject to the Apache 2.0 License agreement,
 found in "apache-20.txt", as they are from the mbedtls project. Similarly, all
-files in the "lib503" and "src" folders are subject to the MIT License agreement,
+files in the "PQCrypto-SIDH" folder are subject to the MIT License agreement,
 as they are a part of the Microsoft Corporation's SIDH project.
